@@ -115,7 +115,7 @@ TITLE is a title of the window (the caller is responsible to set that right)"
 
 (defun spacehammer/finish-edit-with-emacs ()
   (interactive)
-  (spacemacs/copy-whole-buffer-to-clipboard)
+  (clipboard-kill-ring-save (point-min) (point-max))
   (kill-buffer)
   (delete-frame)
   (call-process (executable-find "hs") nil 0 nil "-c"
